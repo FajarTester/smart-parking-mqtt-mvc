@@ -1,0 +1,20 @@
+{
+    "name": "smart-parking-mqtt-mvc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node mqtt/subscriber.js",
+        "dev": "nodemon mqtt/subscriber.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "mqtt": "^5.15.0",
+        "mysql": "^2.18.1",
+        "nodemon": "^3.1.14"
+    }
+}
