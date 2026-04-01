@@ -1,22 +1,58 @@
-
 <?php
 session_start();
-include "../model/UserModel.php";
 
-$username=$_POST['username'];
-$password=$_POST['password'];
+require_once "../model/AuthModel.php";
 
-if(strlen($password)<8){
-echo "Password minimal 8 karakter";
-exit;
+class AuthController
+{
+    private $authModel;
+
+    public function __construct()
+    {
+        $this->authModel = new AuthModel();
+    }
+
+    public function login($username, $password)
+    {
+        $user = $this->authModel->loginUser($username);
+
+        if ($user) {
+            if ($password === $user['password']) {
+                $_SESSION['login'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
+
+
+                $redirect = [
+                    'admin' => '../view/dashboardAdmin.php',
+                    'petugas' => '../view/dashboardPetugas.php',
+                    'owner' => '../view/dashboardOwner.php'
+                ];
+
+                if (isset($redirect[$user['role']])) {
+                    header("Location: " . $redirect[$user['role']]);
+                    exit();
+                }
+
+                return "Role tidak dikenali";
+            } else {
+                return "Password salah";
+            }
+        }
+
+        return "Username tidak ditemukan";
+    }
 }
 
-$cek=loginUser($username,$password);
+$authController = new AuthController();
 
-if($cek>0){
-$_SESSION['login']=true;
-header("Location:../view/dashboard.php");
-}else{
-echo "Login gagal";
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$error = $authController->login($username, $password);
+
+if ($error) {
+    echo $error;
 }
 ?>
