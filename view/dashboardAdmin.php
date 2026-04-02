@@ -33,7 +33,7 @@ $users = $usersController->getUserAll();
         }
 
         header {
-            background: #4e73df;
+            background: #46A085;
             color: #fff;
             padding: 20px 30px;
             display: flex;
@@ -97,7 +97,7 @@ $users = $usersController->getUserAll();
         .card p {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #4e73df;
+            color: #46A085;
         }
 
         /* Table */
@@ -151,11 +151,11 @@ $users = $usersController->getUserAll();
         }
 
         .btn-edit {
-            background: #36b9cc;
+            background: #46A085;
         }
 
         .btn-edit:hover {
-            background: #2c9faf;
+            background: #46A085;
         }
 
         @keyframes fadeInUp {

@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node mqtt/subscriber.js",
-        "dev": "nodemon mqtt/subscriber.js",
+        "start": "node mqtt/subscriber.js && node mqtt/servoExit.js",
+        "dev": "nodemon mqtt/subscriber.js && nodemon mqtt/servoExit.js",
         "conver": "nodemon mqtt/conver.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

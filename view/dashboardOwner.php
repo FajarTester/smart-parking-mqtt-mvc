@@ -10,7 +10,6 @@ $parkirOwner = new ParkirOwnerModel();
 
 $allDone = $parkirOwner->getAllDone();
 $totalFee = $parkirOwner->getTotalFee();
-$feeByJenis = $parkirOwner->getFeeByJenis();
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $feeByJenis = $parkirOwner->getFeeByJenis();
         }
 
         header {
-            background: #1cc88a;
+            background: #46A085;
             color: #fff;
             padding: 20px 30px;
             display: flex;
@@ -92,7 +91,7 @@ $feeByJenis = $parkirOwner->getFeeByJenis();
         .card p {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #1cc88a;
+            color: #46A085;
         }
 
         table {
@@ -183,16 +182,6 @@ $feeByJenis = $parkirOwner->getFeeByJenis();
                     <?= number_format($totalFee, 0, ',', '.') ?>
                 </p>
             </div>
-            <?php foreach ($feeByJenis as $jenis => $total): ?>
-                <div class="card">
-                    <h3>Total
-                        <?= ucfirst($jenis) ?>
-                    </h3>
-                    <p>Rp
-                        <?= number_format($total, 0, ',', '.') ?>
-                    </p>
-                </div>
-            <?php endforeach; ?>
         </div>
 
         <div style="overflow-x:auto; animation: fadeInUp 0.8s ease;">

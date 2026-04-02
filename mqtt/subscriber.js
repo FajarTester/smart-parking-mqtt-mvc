@@ -92,7 +92,15 @@ mqttClient.on("message", async (topic, message) => {
                 });
             });
         }
+
+        if (topic === "parking/fajar/system/openExitServo") {
+            bukaServoExit();
+        }
     } catch (err) {
         console.log("Gagal memproses JSON:", message.toString());
     }
 });
+
+module.exports = {
+    mqttClient,
+};

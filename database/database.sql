@@ -56,8 +56,7 @@ CREATE TABLE
         `checkout_time` datetime DEFAULT NULL,
         `status` enum ('IN', 'OUT', 'DONE') NOT NULL,
         `duration` int (11) DEFAULT NULL,
-        `fee` int (11) DEFAULT NULL,
-        `jenis` varchar(30) DEFAULT NULL
+        `fee` int (11) DEFAULT NULL
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 --
@@ -72,7 +71,6 @@ INSERT INTO
         `status`,
         `duration`,
         `fee`,
-        `jenis`
     )
 VALUES
     (
@@ -82,8 +80,7 @@ VALUES
         '2026-03-16 09:06:24',
         'OUT',
         NULL,
-        2000,
-        'Motor'
+        2000
     ),
     (
         2,
@@ -92,8 +89,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         3,
@@ -102,8 +98,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         4,
@@ -112,8 +107,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Mobil'
+        NULL
     ),
     (
         5,
@@ -122,8 +116,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         6,
@@ -132,8 +125,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         7,
@@ -142,8 +134,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         8,
@@ -152,8 +143,7 @@ VALUES
         '2026-04-01 22:52:17',
         'DONE',
         NULL,
-        2000,
-        'Motor'
+        2000
     ),
     (
         9,
@@ -172,8 +162,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         11,
@@ -182,8 +171,7 @@ VALUES
         NULL,
         'IN',
         NULL,
-        NULL,
-        'Motor'
+        NULL
     ),
     (
         12,

@@ -32,6 +32,7 @@ if (isset($_GET['id'])) {
     if ($error) {
         echo $error;
     }
+    
 } else {
     echo "ID tidak ditemukan.";
 }

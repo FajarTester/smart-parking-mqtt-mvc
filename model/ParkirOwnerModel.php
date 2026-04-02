@@ -32,16 +32,5 @@ class ParkirOwnerModel
         return $row['total_fee'] ?? 0;
     }
 
-    // Total per jenis kendaraan
-    public function getFeeByJenis()
-    {
-        $sql = "SELECT jenis, SUM(fee) as total FROM parkir WHERE status='DONE' GROUP BY jenis";
-        $result = $this->conn->query($sql);
-        $data = [];
-        while ($row = $result->fetch_assoc()) {
-            $data[$row['jenis']] = $row['total'];
-        }
-        return $data;
-    }
 }
 ?>
