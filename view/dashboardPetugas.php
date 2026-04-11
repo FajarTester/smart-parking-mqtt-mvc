@@ -113,10 +113,9 @@ $data_done = $parkirController->getParkirByStatus('DONE');
                             <td><?= $row['checkout_time']; ?></td>
                             <td><?= $row['status']; ?></td>
                             <td>
-                                <a href="../controller/ProsesController.php?id=<?= $row['id']; ?>" class="btn-buka"
-                                    onclick="return confirm('Konfirmasi pembayaran manual selesai & buka palang?')">
+                                <button class="btn-buka" data-id="<?= $row['id'] ?>">
                                     Buka Palang
-                                </a>
+                                </button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -157,5 +156,28 @@ $data_done = $parkirController->getParkirByStatus('DONE');
     </div>
 
 </body>
+<script>
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('btn-buka')) return;
+        const id = e.target.dataset.id;
+        fetch('http://localhost:8000/publish/exit/' + id)
+            .then(response => {
+                if (response.ok) {
+                    alert('Palang pintu terbuka!');
+                    setInterval(() => {
+                        location.reload();
+                    }, 1000);
+                } else {
+                    alert('Gagal membuka palang pintu.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat membuka palang pintu.');
+            });
+    })
+
+</script>
 
 </html>
